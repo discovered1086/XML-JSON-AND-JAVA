@@ -8,6 +8,10 @@ public class MySAXParserHarness {
 		String xmlFile = DataProvider.DATADIR+"customers.xml";
 		
 		System.out.println(xmlFile);
+		
+		MySAXParserHandler handler = new MySAXParserHandler();
+		
+		handler.getCustomers(xmlFile);
 	}
 
 }
