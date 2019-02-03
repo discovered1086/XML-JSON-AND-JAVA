@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://employeemanagement.com/employeeRecords"
+        xmlns:employee="http://employeemanagement.com/employeeRecords"
+        elementFormDefault="qualified">
+
+    <element name="employee" type="employee:Employee" />
+
+    <complexType name="Employee">
+        <sequence>
+            <!--<element name="employeeId" type="employee:employeeId" />-->
+            <element name="firstName" type="xsd:string" />
+            <element name="lastName" type="xsd:string" />
+            <element name="DOB" type="xsd:date" />
+            <element name="gender" type="employee:gender" />
+            <element name="department" type="employee:department" />
+            <element name="address" type="employee:Address" />
+        </sequence>
+
+        <attribute name="employeeId" type="employee:employeeId" />
+    </complexType>
+
+    <complexType name="Address">
+        <sequence>
+            <element name="addressLine1" type="xsd:string" />
+            <element name="addressLine2" type="xsd:string" />
+            <element name="city" type="xsd:string" />
+            <element name="state" type="xsd:string" />
+            <element name="zipCode" type="xsd:string" />
+        </sequence>
+    </complexType>
+
+    <simpleType name="department">
+        <restriction base="string">
+           <maxLength value="50" />
+        </restriction>
+    </simpleType>
+
+    <simpleType name="gender">
+        <restriction base="string">
+            <enumeration value="Male" />
+            <enumeration value="Female" />
+        </restriction>
+    </simpleType>
+
+    <simpleType name="employeeId">
+        <restriction base="int" >
+            <pattern value="[0-9]*" />
+        </restriction>
+    </simpleType>
+
+</schema>

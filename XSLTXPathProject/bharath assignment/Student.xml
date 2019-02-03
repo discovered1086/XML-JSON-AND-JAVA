@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StudentScores>
+	<College>Stanford</College>
+	<Student id="1">
+		<FirstName>Tom</FirstName>
+		<LastName>Cruise</LastName>
+		<Score>90</Score>
+	</Student>
+	<Student id="2">
+		<FirstName>Amitabh</FirstName>
+		<LastName>Bachan</LastName>
+		<Score>95</Score>
+	</Student>
+	<Student id="3">
+		<FirstName>Hillary</FirstName>
+		<LastName>Clinton</LastName>
+		<Score>70</Score>
+	</Student>
+	<Student id="4">
+		<FirstName>Donald</FirstName>
+		<LastName>Trump</LastName>
+		<Score>70</Score>
+	</Student>
+</StudentScores>
+
+<!--
+Requirements
+1. College name in output html in bold
+2. Generate an html table
+3. It should be sorted by their ID
+4. 4 columns, first name, last name, score, grade
+90 or greater than 90, the grade should be A
+80 or more grade should be B
+70 or more the grade should be C-->

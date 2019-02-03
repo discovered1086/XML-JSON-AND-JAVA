@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<emp:employee xmlns:emp="http://employeemanagement.com/employeeRecords"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://employeemanagement.com/employeeRecords /schema/employee.xsd"
+              employeeId="4578">
+
+    <emp:firstName>Kingshuk</emp:firstName>
+    <emp:lastName>Mukherjee</emp:lastName>
+    <emp:DOB>1986-10-16</emp:DOB>
+    <emp:gender>Male</emp:gender>
+    <emp:department>IT</emp:department>
+    <emp:address>
+        <emp:addressLine1>600 Asylum Avenue</emp:addressLine1>
+        <emp:addressLine2>Apt - 316</emp:addressLine2>
+        <emp:city>Hartford</emp:city>
+        <emp:state>CT</emp:state>
+        <emp:zipCode>06105</emp:zipCode>
+    </emp:address>
+
+</emp:employee>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        elementFormDefault="qualified"
+        targetNamespace="http://www.example.org/student"
+        xmlns:tns="http://www.example.org/student">
+    
+    <element name="student" type="tns:Student" />
+
+    <complexType name="Student">
+        <sequence>
+            <element name="id" type="int" />
+            <element name="name" type="string" />
+            <element name="course" type="tns:course" />
+            <element name="admissionYear" type="int" />
+            <element name="email" type="string" maxOccurs="unbounded"/> <!--This makes the number of occurrences of
+            this element unbounded-->
+            <element name="address" type="tns:address" minOccurs="0"/> <!--This makes the element in the XML optional-->
+            <element name="major" type="tns:Subjects" />
+            <element name="minor" type="tns:MinorSubjects" />
+        </sequence>
+    </complexType>
+
+    <simpleType name="course">
+        <restriction base="string">
+            <enumeration value="IT" />
+            <enumeration value="CSE" />
+            <enumeration value="MECH" />
+            <enumeration value="AUE" />
+            <enumeration value="ECE" />
+        </restriction>
+    </simpleType>
+
+    <simpleType name="address">
+        <restriction base="string" >
+            <maxLength value="10" />
+        </restriction>
+    </simpleType>
+
+    <complexType name="Subjects">
+        <all>
+            <element name="id" type="string" />
+            <element name="Name" type="string" />
+        </all>
+    </complexType>
+
+    <complexType name="MinorSubjects">
+        <choice>
+            <element name="Maths" type="tns:Subjects" />
+            <element name="Automata" type="tns:Subjects" />
+            <element name="HTML" type="tns:Subjects" />
+        </choice>
+    </complexType>
+</schema>

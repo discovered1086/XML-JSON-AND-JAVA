@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<tns:student xmlns:tns="http://www.example.org/student"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.example.org/student /schema/student.xsd" >
+<tns:id>1</tns:id>
+    <tns:name>Kingshuk</tns:name>
+    <tns:course>MECH</tns:course>
+    <tns:admissionYear>2005</tns:admissionYear>
+    <tns:email>sly.mania42@gmail.com</tns:email>
+    <tns:email>scorpion_kingshuk@yahoo.co.in</tns:email>
+    <tns:email>kingshuk-2.mukherjee-2@cognizant.com</tns:email>
+    <tns:major>
+        <tns:id>123</tns:id>
+        <tns:Name>Java</tns:Name>
+    </tns:major>
+    <tns:minor>
+        <tns:Automata>
+            <tns:id>12</tns:id>
+            <tns:Name>Compiler programming</tns:Name>
+        </tns:Automata>
+    </tns:minor>
+</tns:student>

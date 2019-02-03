@@ -13,6 +13,8 @@ public class Customer {
 	private int age;
 	private BigDecimal balance;
 	private boolean active;
+	
+	
 	private Date joined;
 
 	//data item names from JSON file
