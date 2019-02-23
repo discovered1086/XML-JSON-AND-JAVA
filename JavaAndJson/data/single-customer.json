@@ -1,0 +1,11 @@
+{
+	"id": 8,
+	"name": "Jewell Sawyer",
+	"phone": "+1 (967) 414-2863",
+	"about": "Cupidatat id labore cillum culpa incididunt irure laborum ut culpa do exercitation sint labore. Sint consectetur id voluptate aliquip qui proident do. Occaecat et adipisicing cillum et ea anim pariatur.\r\n",
+	"age": 34,
+	"balance": "1231.71",
+	"addresses": [{"city":"Buffalo Grove","zipCode":"60089"}, {"city":"Hartford","zipCode":"06105"}],
+	"active":true,
+	"complainingCustomer":true
+}
