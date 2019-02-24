@@ -5,12 +5,13 @@ import java.util.Date;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.kingshuk.json.jacksonbinding.model.jsongetter.Address;
-import com.kingshuk.json.jacksonbinding.model.jsongetter.Customer;
+import com.kingshuk.json.jacksonbinding.model.propertyorder.Address;
+import com.kingshuk.json.jacksonbinding.model.propertyorder.Customer;
 
 
 
-public class JacksonJsonGetterHarness {
+
+public class JacksonPropertyOrderHarness {
 
 	public static void main(String[] args) {
 		ObjectMapper mapper = new ObjectMapper();
