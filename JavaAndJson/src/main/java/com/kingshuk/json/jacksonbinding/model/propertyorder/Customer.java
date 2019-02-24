@@ -15,11 +15,8 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString(of ={"id", "name","phone", "age", "addresses" })
 @JsonIgnoreProperties(ignoreUnknown =true)
-@JsonPropertyOrder({"id","name","phone","myage",
-						"balance",
-						"active",
-						"joined-company-on",
-						"addresses"})
+@JsonPropertyOrder(value={"id","name","addresses","phone","myage"},
+					alphabetic=true)
 public class Customer {
 
 	private int id;
