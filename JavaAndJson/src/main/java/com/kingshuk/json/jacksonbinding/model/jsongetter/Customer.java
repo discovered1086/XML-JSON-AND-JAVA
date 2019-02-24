@@ -1,4 +1,4 @@
-package com.kingshuk.json.jacksonbinding.annotations.models;
+package com.kingshuk.json.jacksonbinding.model.jsongetter;
 
 import java.math.BigDecimal;
 import java.util.Date;

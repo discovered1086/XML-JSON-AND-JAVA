@@ -5,8 +5,8 @@ import java.util.Date;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.kingshuk.json.jacksonbinding.annotations.models.Address;
-import com.kingshuk.json.jacksonbinding.annotations.models.Customer;
+import com.kingshuk.json.jacksonbinding.jsongetter.Address;
+import com.kingshuk.json.jacksonbinding.jsongetter.Customer;
 
 
 public class JacksonJsonGetterHarness {
