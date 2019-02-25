@@ -1,4 +1,4 @@
-package com.kingshuk.json.jacksonbinding.model.propertyorder;
+package com.kingshuk.json.jacksonbinding.model.rawvalue;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -6,15 +6,15 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonRawValue;
 
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+
 @NoArgsConstructor
-@ToString(of = { "id", "name", "phone", "age", "addresses" })
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonPropertyOrder(value = { "id", "name", "addresses", "phone", "myage" }, alphabetic = true)
+@ToString(of ={"id", "name","phone", "age", "address" })
+@JsonIgnoreProperties(ignoreUnknown =true)
 public class Customer {
 
 	private int id;
@@ -24,14 +24,17 @@ public class Customer {
 	private int age;
 	private BigDecimal balance;
 	private boolean active;
-
-	private List<Address> addresses;
-
+	
 	private Date joined;
+	
+	@JsonRawValue
+	private String address;
 
 	public int getId() {
 		return id;
 	}
+	
+	
 
 	public void setId(int id) {
 		this.id = id;
@@ -79,14 +82,6 @@ public class Customer {
 		this.active = active;
 	}
 
-	public List<Address> getAddresses() {
-		return addresses;
-	}
-
-	public void setAddresses(List<Address> addresses) {
-		this.addresses = addresses;
-	}
-
 	@JsonGetter("joined-company-on")
 	public Date getJoined() {
 		return joined;
@@ -95,5 +90,31 @@ public class Customer {
 	public void setJoined(Date joined) {
 		this.joined = joined;
 	}
+
+
+
+	public String getAbout() {
+		return about;
+	}
+
+
+
+	public void setAbout(String about) {
+		this.about = about;
+	}
+
+
+
+	public String getAddress() {
+		return address;
+	}
+
+
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	
 
 }
