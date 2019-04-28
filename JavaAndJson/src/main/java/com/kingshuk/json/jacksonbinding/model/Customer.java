@@ -42,6 +42,5 @@ public class Customer {
 		JOINED="joined";
 
 	
-	
 
 }

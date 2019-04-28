@@ -1,0 +1,35 @@
+{
+  "trackId" : null,
+  "trackTitle" : "Java Programming",
+  "trackDescription" : "This track is about maintaining learning details for Java",
+  "trackNotes" : null,
+  "subTracks" : null,
+  "learningTopics" : [ {
+    "topicId" : null,
+    "topicTitle" : "Inheritance in java",
+    "topicDescription" : "This topic is about learning java inheritance properly",
+    "topicNotes" : null,
+    "topicType" : {
+      "topicCategoryId" : null,
+      "topicCategoryName" : "Subject",
+      "topicCategoryDescription" : "A category that is to be treated as a new subject",
+      "subCategories" : null
+    },
+    "learningResources" : [ {
+      "resourceId" : null,
+      "resourceTitle" : "Stack overflow site",
+      "resourceDescription" : "A specific article explains it really well",
+      "resourceType" : {
+        "resourceCateoryId" : null,
+        "resourceCateoryName" : "Web Article",
+        "resourceCateoryDescription" : null,
+        "subCategories" : null,
+        "location" : "ONLINE"
+      },
+      "resourceNotes" : null,
+      "resourceLocation" : "https://www.stackoverflow.com"
+    } ],
+    "subTopics" : null
+  } ],
+  "learningResources" : null
+}
