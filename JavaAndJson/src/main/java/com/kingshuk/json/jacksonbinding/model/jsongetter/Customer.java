@@ -7,11 +7,15 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 
 @NoArgsConstructor
+@AllArgsConstructor
+@Getter
 @ToString(of ={"id", "name","phone", "age", "addresses" })
 @JsonIgnoreProperties(ignoreUnknown =true)
 public class Customer {
