@@ -1,0 +1,27 @@
+{
+  "transactionId" : "TRN0098789",
+  "transactionDescription" : "Citi credit card bill payment",
+  "transactionCurrency" : "INR",
+  "transactionAmount" : 20.3,
+  "transactionType" : {
+    "transactionTypeCode" : "BLLPYMNT",
+    "typeOfTransaction" : "EXPENSE",
+    "transactionTypeDefinition" : "Bill payment",
+    "transactionTypeEffectiveDate" : "11/21/2019 13:11:97 PM IST"
+  },
+  "transactionDate" : "11/21/2019 13:11:98 PM IST",
+  "customerAccount" : {
+    "accountId" : "ACCT290",
+    "accountNumber" : "07181610046040",
+    "currency" : "INR",
+    "accountDescription" : "HDFC Bank account",
+    "accountOpenningDate" : "11/21/2019 13:11:98 PM IST"
+  },
+  "transactionCategory" : {
+    "categoryId" : "CTGRY12",
+    "categoryName" : "Credit card bill",
+    "categoryDesc" : "Bill payment for credit card",
+    "categoryEffectiveDate" : "11/21/2019 13:11:98 PM IST",
+    "categoryTransactionType" : "EXPENSE"
+  }
+}
