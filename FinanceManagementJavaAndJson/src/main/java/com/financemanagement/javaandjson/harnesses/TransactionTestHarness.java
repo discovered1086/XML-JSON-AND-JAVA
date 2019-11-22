@@ -17,7 +17,9 @@ import com.financemanagement.javaandjson.model.TransactionTypeDTO;
 public class TransactionTestHarness {
 
 	public static void main(String[] args) {
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy HH:MM:SS a zzz");
+		//DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy HH:MM:SS a zzz");
+		
+		DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
 
 		TransactionTypeDTO transactionTypeDTO = TransactionTypeDTO.builder().transactionTypeCode("BLLPYMNT")
 				.transactionTypeDefinition("Bill payment")
@@ -27,14 +29,14 @@ public class TransactionTestHarness {
 
 		CategoryDTO categoryDTO = CategoryDTO.builder().categoryId("CTGRY12").categoryName("Credit card bill")
 				.categoryDesc("Bill payment for credit card").categoryTransactionType(TransactionTypeEnum.EXPENSE)
-				.categoryEffectiveDate(ZonedDateTime.now().format(formatter)).build();
+				.categoryEffectiveDate(ZonedDateTime.now()).build();
 
 		AccountDTO accountDTO = AccountDTO.builder().accountId("ACCT290").accountNumber("07181610046040")
 				.accountDescription("HDFC Bank account").accountOpenningDate(ZonedDateTime.now().format(formatter))
 				.currency(Currency.INR).build();
 
 		TransactionDTO transactionDTO = TransactionDTO.builder().transactionCurrency(Currency.INR)
-				.transactionDate(ZonedDateTime.now().format(formatter)).transactionId("TRN0098789")
+				.transactionDate(ZonedDateTime.now()).transactionId("TRN0098789")
 				.transactionAmount(20.30).transactionCategory(categoryDTO).transactionType(transactionTypeDTO)
 				.account(accountDTO)
 				.transactionDescription("Citi credit card bill payment").build();

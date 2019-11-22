@@ -7,21 +7,22 @@
     "transactionTypeCode" : "BLLPYMNT",
     "typeOfTransaction" : "EXPENSE",
     "transactionTypeDefinition" : "Bill payment",
-    "transactionTypeEffectiveDate" : "11/21/2019 13:11:97 PM IST"
+    "transactionTypeEffectiveDate" : "2019-11-22T14:46:38.722+05:30[Asia/Kolkata]"
   },
-  "transactionDate" : "11/21/2019 13:11:98 PM IST",
+  "transactionDate" : "2019-11-22T14:46:38+05:30",
   "customerAccount" : {
     "accountId" : "ACCT290",
     "accountNumber" : "07181610046040",
     "currency" : "INR",
     "accountDescription" : "HDFC Bank account",
-    "accountOpenningDate" : "11/21/2019 13:11:98 PM IST"
+    "accountOpenningDate" : "2019-11-22T14:46:38.728+05:30[Asia/Kolkata]"
   },
   "transactionCategory" : {
     "categoryId" : "CTGRY12",
     "categoryName" : "Credit card bill",
     "categoryDesc" : "Bill payment for credit card",
-    "categoryEffectiveDate" : "11/21/2019 13:11:98 PM IST",
+    "categoryEffectiveDate" : "2019-11-22+05:30",
     "categoryTransactionType" : "EXPENSE"
-  }
+  },
+  "transactionNotes" : null
 }

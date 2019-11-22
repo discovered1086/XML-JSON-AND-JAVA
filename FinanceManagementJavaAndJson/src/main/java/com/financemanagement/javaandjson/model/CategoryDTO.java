@@ -8,9 +8,12 @@ import java.util.Set;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.financemanagement.javaandjson.enums.TransactionTypeEnum;
+import com.financemanagement.javaandjson.serialization.DateDeSerializer;
+import com.financemanagement.javaandjson.serialization.DateSerializer;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -34,16 +37,14 @@ public class CategoryDTO implements Serializable {
 
 	private String categoryDesc;
 
-	@JsonIgnore
-	private ZonedDateTime categoryEffectiveDateTime;
-
-	@JsonIgnore
-	private ZonedDateTime categoryTerminationDateTime;
-
-	private String categoryEffectiveDate;
+	@JsonSerialize(using = DateSerializer.class)
+	@JsonDeserialize(using = DateDeSerializer.class)
+	private ZonedDateTime categoryEffectiveDate;
 
 	@JsonInclude(value = JsonInclude.Include.NON_NULL)
-	private String categoryTerminationDate;
+	@JsonSerialize(using = DateSerializer.class)
+	@JsonDeserialize(using = DateDeSerializer.class)
+	private ZonedDateTime categoryTerminationDate;
 
 	private TransactionTypeEnum categoryTransactionType;
 

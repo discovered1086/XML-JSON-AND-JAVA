@@ -1,6 +1,5 @@
 package com.kingshuk.json.jacksonbinding.harnesses;
 
-import java.util.Arrays;
 import java.util.Date;
 
 import com.fasterxml.jackson.core.JsonProcessingException;

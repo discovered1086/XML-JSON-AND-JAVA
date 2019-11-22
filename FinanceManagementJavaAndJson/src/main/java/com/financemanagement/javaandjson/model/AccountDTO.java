@@ -8,15 +8,19 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import com.financemanagement.javaandjson.enums.Currency;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @ToString
 @EqualsAndHashCode(exclude = "accountId")
 @Builder
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @JsonRootName(value = "customerAccount")
 public class AccountDTO implements Serializable {
 
