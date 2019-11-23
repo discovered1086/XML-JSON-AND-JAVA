@@ -1,19 +1,18 @@
 package com.financemanagement.javaandjson.model;
 
 import java.io.Serializable;
+import java.time.LocalTime;
 import java.time.ZonedDateTime;
-import java.util.Objects;
 import java.util.Set;
 
-import org.apache.commons.lang3.builder.EqualsBuilder;
-import org.apache.commons.lang3.builder.HashCodeBuilder;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.financemanagement.javaandjson.enums.TransactionTypeEnum;
-import com.financemanagement.javaandjson.serialization.DateDeSerializer;
 import com.financemanagement.javaandjson.serialization.DateSerializer;
+import com.financemanagement.javaandjson.serialization.DateTimeDeSerializer;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,9 +20,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Builder
+/**
+ * @param categoryEffectiveDate
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonRootName(value = "transactionCategory")
 public class CategoryDTO implements Serializable {
 
 	/**
@@ -31,48 +34,45 @@ public class CategoryDTO implements Serializable {
 	 */
 	private static final long serialVersionUID = -7223290830168812286L;
 
+	@JsonProperty(required = true, value = "categoryId")
 	private String categoryId;
 
+	@JsonProperty(required = true, value = "categoryName")
 	private String categoryName;
 
-	private String categoryDesc;
+	@JsonProperty(required = false, value = "categoryDescription")
+	@JsonInclude(value = JsonInclude.Include.NON_NULL)
+	private String categoryDescription;
 
 	@JsonSerialize(using = DateSerializer.class)
-	@JsonDeserialize(using = DateDeSerializer.class)
+	@JsonDeserialize(using = DateTimeDeSerializer.class)
+	@JsonProperty(required = true, value = "effectiveDate")
 	private ZonedDateTime categoryEffectiveDate;
 
 	@JsonInclude(value = JsonInclude.Include.NON_NULL)
 	@JsonSerialize(using = DateSerializer.class)
-	@JsonDeserialize(using = DateDeSerializer.class)
+	@JsonDeserialize(using = DateTimeDeSerializer.class)
+	@JsonProperty(required = false, value = "terminationDate")
 	private ZonedDateTime categoryTerminationDate;
 
+	@JsonProperty(required = false, value = "transactionType")
 	private TransactionTypeEnum categoryTransactionType;
 
 	@JsonInclude(value = JsonInclude.Include.NON_EMPTY, content = JsonInclude.Include.NON_NULL)
-	private Set<SubCategoryDTO> subCategorys;
+	private Set<SubCategoryDTO> subCategories;
 
-	@Override
-	public int hashCode() {
-		return new HashCodeBuilder().append(categoryId).append(categoryName).append(categoryDesc)
-				.append(categoryEffectiveDate).append(categoryTerminationDate).append(categoryTransactionType)
-				.toHashCode();
-	}
+	public static class CategoryDTOBuilder {
 
-	@Override
-	public boolean equals(Object obj) {
-		if (obj instanceof CategoryDTO) {
-			final CategoryDTO categoryDTO = (CategoryDTO) obj;
+		public CategoryDTOBuilder categoryEffectiveDate(ZonedDateTime categoryEffectiveDate) {
+			this.categoryEffectiveDate = categoryEffectiveDate.with(LocalTime.of(00, 00, 00));
 
-			boolean categoryEquality = new EqualsBuilder()
-					.append(this.categoryName.trim().toUpperCase(), categoryDTO.categoryName.trim().toUpperCase())
-					.isEquals() && Objects.deepEquals(this.subCategorys, categoryDTO.subCategorys);
+			return this;
+		}
 
-			return (((Objects.nonNull(this.categoryId) && Objects.nonNull(categoryId))
-					&& this.categoryId.equals(categoryDTO.categoryId)) || categoryEquality);
+		public CategoryDTOBuilder categoryTerminationDate(ZonedDateTime categoryTerminationDate) {
+			this.categoryTerminationDate = categoryTerminationDate.with(LocalTime.of(00, 00, 00));
 
-		} else {
-			return false;
+			return this;
 		}
 	}
-
 }

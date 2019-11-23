@@ -2,11 +2,8 @@ package com.financemanagement.javaandjson.model;
 
 import java.io.Serializable;
 import java.time.ZonedDateTime;
-import java.util.Objects;
 
-import org.apache.commons.lang3.builder.EqualsBuilder;
-import org.apache.commons.lang3.builder.HashCodeBuilder;
-
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonRootName;
@@ -35,56 +32,36 @@ public class TransactionDTO implements Serializable {
 	 */
 	private static final long serialVersionUID = -7817135024822644549L;
 
+	@JsonProperty(required = true, value = "transactionId")
 	private String transactionId;
 
+	@JsonProperty(required = true, value = "transactionType")
 	private TransactionTypeDTO transactionType;
 
+	@JsonProperty(required = true, value = "transactionDescription")
 	private String transactionDescription;
 
 	@JsonProperty(required = true, value = "customerAccount")
 	private AccountDTO account;
 
+	@JsonProperty(required = true, value = "transactionCategory")
 	private CategoryDTO transactionCategory;
 
+	@JsonProperty(required = true, value = "transactionCurrency")
 	private Currency transactionCurrency;
 
+	@JsonProperty(required = true, value = "transactionAmount")
 	private double transactionAmount;
 
 	// private String transactionDate;
 
 	@JsonSerialize(using = DateTimeSerializer.class)
 	@JsonDeserialize(using = DateTimeDeSerializer.class)
+	@JsonProperty(required = true, value = "transactionDate")
 	private ZonedDateTime transactionDate;
 
+	@JsonProperty(required = false, value = "transactionNotes")
+	@JsonInclude(value = JsonInclude.Include.NON_NULL)
 	private String transactionNotes;
-
-	@Override
-	public int hashCode() {
-		return new HashCodeBuilder().append(transactionId).append(transactionDate).append(transactionCurrency)
-				.append(transactionCategory).append(transactionAmount).append(transactionType)
-				.append(transactionDescription).toHashCode();
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (obj instanceof TransactionDTO) {
-			final TransactionDTO transactionDTO = (TransactionDTO) obj;
-
-			boolean transactionEquality = new EqualsBuilder()
-					.append(this.transactionDate, transactionDTO.transactionDate)
-					.append(this.transactionCurrency, transactionDTO.transactionCurrency)
-					.append(this.transactionAmount, transactionDTO.transactionAmount)
-					.append(this.transactionCategory, transactionDTO.transactionCategory)
-					.append(this.account, transactionDTO.account)
-					.append(this.transactionDescription.trim().toUpperCase(),
-							transactionDTO.transactionDescription.trim().toUpperCase())
-					.append(this.transactionType, transactionDTO.transactionType).isEquals();
-
-			return (((Objects.nonNull(this.transactionId) && Objects.nonNull(transactionDTO.transactionId))
-					&& this.transactionId.equals(transactionDTO.transactionId)) || transactionEquality);
-		} else {
-			return false;
-		}
-	}
 
 }

@@ -1,9 +1,10 @@
 package com.financemanagement.javaandjson.serialization;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.time.temporal.ChronoUnit;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -30,11 +31,11 @@ public class DateDeSerializer extends StdDeserializer<ZonedDateTime> {
 			throws IOException, JsonProcessingException {
 		String dateTime = p.getText();
 
-		LocalDateTime date = LocalDateTime.parse(dateTime, FinanceManagementSerialization.dateFormatter);
-		
+		LocalDate date = LocalDate.parse(dateTime, FinanceManagementSerialization.dateFormatter);
+
 		System.out.println(date);
 
-		return ZonedDateTime.of(date, ZoneId.systemDefault());
+		return date.atStartOfDay(ZoneId.systemDefault()).truncatedTo(ChronoUnit.SECONDS);
 	}
 
 }

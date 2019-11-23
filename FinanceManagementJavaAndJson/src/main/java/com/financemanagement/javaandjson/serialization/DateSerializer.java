@@ -2,6 +2,7 @@ package com.financemanagement.javaandjson.serialization;
 
 import java.io.IOException;
 import java.time.ZonedDateTime;
+import java.time.temporal.ChronoUnit;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -24,7 +25,7 @@ public class DateSerializer extends StdSerializer<ZonedDateTime> {
 
 	@Override
 	public void serialize(ZonedDateTime value, JsonGenerator gen, SerializerProvider provider) throws IOException {
-		gen.writeString(value.format(FinanceManagementSerialization.dateFormatter));
+		gen.writeString(value.truncatedTo(ChronoUnit.SECONDS).format(FinanceManagementSerialization.dateTimeFormatter));
 	}
 
 }

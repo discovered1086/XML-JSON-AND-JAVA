@@ -2,6 +2,7 @@ package com.financemanagement.javaandjson.serialization;
 
 import java.io.IOException;
 import java.time.ZonedDateTime;
+import java.time.temporal.ChronoUnit;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
@@ -28,7 +29,8 @@ public class DateTimeDeSerializer extends StdDeserializer<ZonedDateTime> {
 
 		String dateTime = p.getText();
 
-		return ZonedDateTime.parse(dateTime, FinanceManagementSerialization.dateTimeFormatter);
+		return ZonedDateTime.parse(dateTime, FinanceManagementSerialization.dateTimeFormatter).truncatedTo(ChronoUnit.SECONDS);
+
 	}
 
 }

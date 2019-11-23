@@ -28,7 +28,7 @@ public class TransactionTestHarness {
 				.build();
 
 		CategoryDTO categoryDTO = CategoryDTO.builder().categoryId("CTGRY12").categoryName("Credit card bill")
-				.categoryDesc("Bill payment for credit card").categoryTransactionType(TransactionTypeEnum.EXPENSE)
+				.categoryDescription("Bill payment for credit card").categoryTransactionType(TransactionTypeEnum.EXPENSE)
 				.categoryEffectiveDate(ZonedDateTime.now()).build();
 
 		AccountDTO accountDTO = AccountDTO.builder().accountId("ACCT290").accountNumber("07181610046040")
