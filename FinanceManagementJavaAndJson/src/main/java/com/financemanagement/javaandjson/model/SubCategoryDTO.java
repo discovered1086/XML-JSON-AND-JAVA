@@ -1,25 +1,27 @@
 package com.financemanagement.javaandjson.model;
 
 import java.io.Serializable;
+import java.time.LocalTime;
 import java.time.ZonedDateTime;
-import java.util.Objects;
 
-import org.apache.commons.lang3.builder.EqualsBuilder;
-import org.apache.commons.lang3.builder.HashCodeBuilder;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.financemanagement.javaandjson.serialization.DateTimeDeSerializer;
+import com.financemanagement.javaandjson.serialization.DateTimeSerializer;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonRootName(value = "transactionSubCategory")
 public class SubCategoryDTO implements Serializable {
 
 	/**
@@ -27,42 +29,39 @@ public class SubCategoryDTO implements Serializable {
 	 */
 	private static final long serialVersionUID = -7223290830168812286L;
 
+	@JsonProperty(required = true, value = "subCategoryId")
 	private String subCategoryId;
 
+	@JsonProperty(required = true, value = "subCategoryName")
 	private String subCategoryName;
 
+	@JsonProperty(required = false, value = "subCategoryDescription")
+	@JsonInclude(value = JsonInclude.Include.NON_NULL)
 	private String subCategoryDescription;
-	
-	@JsonIgnore
-	private ZonedDateTime subCategoryEffectiveDateTime;
 
-	@JsonIgnore
-	private ZonedDateTime subCategoryTerminationDateTime;
-
-	private String subCategoryEffectiveDate;
+	@JsonProperty(required = true, value = "subCategoryEffectiveDate")
+	@JsonSerialize(using = DateTimeSerializer.class)
+	@JsonDeserialize(using = DateTimeDeSerializer.class)
+	private ZonedDateTime subCategoryEffectiveDate;
 
 	@JsonInclude(value = JsonInclude.Include.NON_NULL)
-	private String subCategoryTerminationDate;
+	@JsonProperty(required = false, value = "subCategoryTerminationDateTime")
+	@JsonSerialize(using = DateTimeSerializer.class)
+	@JsonDeserialize(using = DateTimeDeSerializer.class)
+	private ZonedDateTime subCategoryTerminationDate;
 
-	@Override
-	public int hashCode() {
-		return new HashCodeBuilder().append(subCategoryId).append(subCategoryName).append(subCategoryDescription)
-				.append(subCategoryEffectiveDate).append(subCategoryTerminationDate).toHashCode();
-	}
+	public static class SubCategoryDTOBuilder {
 
-	@Override
-	public boolean equals(Object obj) {
-		if (obj instanceof SubCategoryDTO) {
-			final SubCategoryDTO subCategoryDTO = (SubCategoryDTO) obj;
+		public SubCategoryDTOBuilder subCategoryEffectiveDate(ZonedDateTime subCategoryEffectiveDate) {
+			this.subCategoryEffectiveDate = subCategoryEffectiveDate.with(LocalTime.of(00, 00, 00));
 
-			boolean subCategoryEquality = new EqualsBuilder().append(this.subCategoryName.trim().toUpperCase(),
-					subCategoryDTO.subCategoryName.trim().toUpperCase()).isEquals();
+			return this;
+		}
 
-			return (((Objects.nonNull(this.subCategoryId) && Objects.nonNull(subCategoryId))
-					&& this.subCategoryId.equals(subCategoryDTO.subCategoryId)) || subCategoryEquality);
+		public SubCategoryDTOBuilder subCategoryTerminationDate(ZonedDateTime subCategoryTerminationDate) {
+			this.subCategoryTerminationDate = subCategoryTerminationDate.with(LocalTime.of(00, 00, 00));
 
-		} else {
-			return false;
+			return this;
 		}
 	}
 

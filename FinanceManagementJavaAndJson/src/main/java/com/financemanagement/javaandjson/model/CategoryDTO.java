@@ -11,8 +11,8 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.financemanagement.javaandjson.enums.TransactionTypeEnum;
-import com.financemanagement.javaandjson.serialization.DateSerializer;
 import com.financemanagement.javaandjson.serialization.DateTimeDeSerializer;
+import com.financemanagement.javaandjson.serialization.DateTimeSerializer;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -44,13 +44,13 @@ public class CategoryDTO implements Serializable {
 	@JsonInclude(value = JsonInclude.Include.NON_NULL)
 	private String categoryDescription;
 
-	@JsonSerialize(using = DateSerializer.class)
+	@JsonSerialize(using = DateTimeSerializer.class)
 	@JsonDeserialize(using = DateTimeDeSerializer.class)
-	@JsonProperty(required = true, value = "effectiveDate")
+	@JsonProperty(required = true, value = "categoryEffectiveDate")
 	private ZonedDateTime categoryEffectiveDate;
 
 	@JsonInclude(value = JsonInclude.Include.NON_NULL)
-	@JsonSerialize(using = DateSerializer.class)
+	@JsonSerialize(using = DateTimeSerializer.class)
 	@JsonDeserialize(using = DateTimeDeSerializer.class)
 	@JsonProperty(required = false, value = "terminationDate")
 	private ZonedDateTime categoryTerminationDate;

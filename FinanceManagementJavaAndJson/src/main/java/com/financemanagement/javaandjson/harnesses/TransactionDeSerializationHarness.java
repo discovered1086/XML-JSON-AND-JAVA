@@ -16,8 +16,16 @@ public class TransactionDeSerializationHarness {
 					TransactionDTO.class);
 
 			System.out.println(theTransaction.getTransactionDate());
-			
+
+			System.out.println(theTransaction.getTransactionDate().getZone().getId());
+
 			System.out.println(theTransaction.getTransactionCategory().getCategoryEffectiveDate());
+
+			System.out.println(theTransaction.getTransactionType().getTransactionTypeEffectiveDate().getZone());
+
+			System.out.println(theTransaction.getTransactionCategory().getCategoryEffectiveDate());
+
+			System.out.println(theTransaction.getTransactionType().getTransactionTypeEffectiveDate().getZone());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

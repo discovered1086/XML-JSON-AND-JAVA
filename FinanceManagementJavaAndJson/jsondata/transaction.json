@@ -7,21 +7,22 @@
     "transactionTypeCode" : "BLLPYMNT",
     "typeOfTransaction" : "EXPENSE",
     "transactionTypeDefinition" : "Bill payment",
-    "transactionTypeEffectiveDate" : "2019-11-23T12:34:08.403+05:30[Asia/Kolkata]"
+    "transactionTypeEffectiveDate" : "2019-11-23T00:00:00+05:30"
   },
-  "transactionDate" : "2019-11-23T12:34:08+05:30",
+  "transactionDate" : "2019-11-23T13:42:17+05:30",
   "customerAccount" : {
     "accountId" : "ACCT290",
     "accountNumber" : "07181610046040",
     "currency" : "INR",
     "accountDescription" : "HDFC Bank account",
-    "accountOpenningDate" : "2019-11-23T12:34:08.409+05:30[Asia/Kolkata]"
+    "accountOpenningDate" : "2019-11-23T13:42:17+05:30"
   },
   "transactionCategory" : {
     "categoryId" : "CTGRY12",
     "categoryName" : "Credit card bill",
     "categoryDescription" : "Bill payment for credit card",
-    "effectiveDate" : "2019-11-23T00:00:00+05:30",
+    "categoryEffectiveDate" : "2019-11-23T00:00:00+05:30",
     "transactionType" : "EXPENSE"
-  }
+  },
+  "transactionNotes" : "This is the bill payment for the Citi card for this month July 2019"
 }
