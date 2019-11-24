@@ -21,8 +21,11 @@ public class TransactionDeSerializationHarness {
 
 			System.out.println(transactionDate);
 
-			//Converting time to another zone
+			// Converting time to another zone
 			System.out.println("US time: " + transactionDate.withZoneSameInstant(ZoneId.of("America/New_York")));
+
+			System.out.println("The amount is " + theTransaction.getTransactionAmount().getCurrency() + " "
+					+ theTransaction.getTransactionAmount().getNumber().doubleValue());
 
 			// The time in US time
 

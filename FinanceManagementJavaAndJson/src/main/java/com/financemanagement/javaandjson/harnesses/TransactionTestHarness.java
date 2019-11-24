@@ -5,6 +5,9 @@ import java.io.FileOutputStream;
 import java.io.StringReader;
 import java.time.ZonedDateTime;
 
+import javax.money.Monetary;
+import javax.money.MonetaryAmount;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.financemanagement.javaandjson.enums.Currency;
 import com.financemanagement.javaandjson.enums.TransactionTypeEnum;
@@ -31,9 +34,14 @@ public class TransactionTestHarness {
 		AccountDTO accountDTO = AccountDTO.builder().accountId("ACCT290").accountNumber("07181610046040")
 				.accountDescription("HDFC Bank account").accountOpenningDate(ZonedDateTime.now()).currency(Currency.INR)
 				.build();
+		
+		MonetaryAmount amount = Monetary.getDefaultAmountFactory().setNumber(23.43)
+								.setCurrency(Monetary.getCurrency("INR")).create();
+//		
+		
 
-		TransactionDTO transactionDTO = TransactionDTO.builder().transactionCurrency(Currency.INR)
-				.transactionDate(ZonedDateTime.now()).transactionId("TRN0098789").transactionAmount(20.30)
+		TransactionDTO transactionDTO = TransactionDTO.builder().transactionAmount(amount)
+				.transactionDate(ZonedDateTime.now()).transactionId("TRN0098789")
 				.transactionCategory(categoryDTO).transactionType(transactionTypeDTO).account(accountDTO)
 				.transactionDescription("Citi credit card bill payment")
 				.transactionNotes("This is the bill payment for the Citi card for this month July 2019").build();
