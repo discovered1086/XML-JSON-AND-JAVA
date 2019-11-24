@@ -9,7 +9,6 @@ import javax.money.Monetary;
 import javax.money.MonetaryAmount;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.financemanagement.javaandjson.enums.Currency;
 import com.financemanagement.javaandjson.enums.TransactionTypeEnum;
 import com.financemanagement.javaandjson.model.AccountDTO;
 import com.financemanagement.javaandjson.model.CategoryDTO;
@@ -32,7 +31,7 @@ public class TransactionTestHarness {
 				.build();
 
 		AccountDTO accountDTO = AccountDTO.builder().accountId("ACCT290").accountNumber("07181610046040")
-				.accountDescription("HDFC Bank account").accountOpenningDate(ZonedDateTime.now()).currency(Currency.INR)
+				.accountDescription("HDFC Bank account").accountOpenningDate(ZonedDateTime.now()).currency(Monetary.getCurrency("USD"))
 				.build();
 		
 		MonetaryAmount amount = Monetary.getDefaultAmountFactory().setNumber(23.43)

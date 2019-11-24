@@ -3,12 +3,15 @@ package com.financemanagement.javaandjson.model;
 import java.io.Serializable;
 import java.time.ZonedDateTime;
 
+import javax.money.CurrencyUnit;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.financemanagement.javaandjson.enums.Currency;
+import com.financemanagement.javaandjson.serialization.CurrencyDeSerialization;
+import com.financemanagement.javaandjson.serialization.CurrencySerialization;
 import com.financemanagement.javaandjson.serialization.DateTimeDeSerializer;
 import com.financemanagement.javaandjson.serialization.DateTimeSerializer;
 
@@ -36,7 +39,9 @@ public class AccountDTO implements Serializable {
 	private String accountNumber;
 
 	@JsonProperty(required = true, value = "currency")
-	private Currency currency;
+	@JsonSerialize(using = CurrencySerialization.class)
+	@JsonDeserialize(using = CurrencyDeSerialization.class)
+	private CurrencyUnit currency;
 
 	@JsonProperty(required = true, value = "accountDescription")
 	private String accountDescription;
