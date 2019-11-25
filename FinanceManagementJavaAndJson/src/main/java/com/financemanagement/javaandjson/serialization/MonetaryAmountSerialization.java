@@ -18,7 +18,7 @@ public class MonetaryAmountSerialization extends StdSerializer<MonetaryAmount> {
 	protected MonetaryAmountSerialization(Class<MonetaryAmount> t) {
 		super(t);
 	}
-	
+
 	@SuppressWarnings("unused")
 	private MonetaryAmountSerialization() {
 		this(null);
@@ -28,9 +28,12 @@ public class MonetaryAmountSerialization extends StdSerializer<MonetaryAmount> {
 	public void serialize(MonetaryAmount value, JsonGenerator gen, SerializerProvider serializers) throws IOException {
 		gen.writeStartObject();
 		gen.writeStringField("amount", String.valueOf(value.getNumber().doubleValue()));
+		// gen.writeStringField("currency",
+		// String.valueOf(value.getCurrency().getCurrencyCode()));
 		gen.writeObjectFieldStart("currency");
 		gen.writeStringField("currencyCode", String.valueOf(value.getCurrency().getCurrencyCode()));
 		gen.writeStringField("numericCode", String.valueOf(value.getCurrency().getNumericCode()));
+		gen.writeEndObject();
 		gen.writeEndObject();
 	}
 

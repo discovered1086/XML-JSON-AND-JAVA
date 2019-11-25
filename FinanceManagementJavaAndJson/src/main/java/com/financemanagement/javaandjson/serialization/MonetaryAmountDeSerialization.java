@@ -21,15 +21,14 @@ public class MonetaryAmountDeSerialization extends StdDeserializer<MonetaryAmoun
 	protected MonetaryAmountDeSerialization(Class<?> vc) {
 		super(vc);
 	}
-	
+
 	@SuppressWarnings("unused")
 	private MonetaryAmountDeSerialization() {
 		this(null);
 	}
 
 	@Override
-	public MonetaryAmount deserialize(JsonParser p, DeserializationContext ctxt)
-			throws IOException {
+	public MonetaryAmount deserialize(JsonParser p, DeserializationContext ctxt) throws IOException {
 		JsonNode node = p.getCodec().readTree(p);
 
 		double amount = 0.00;

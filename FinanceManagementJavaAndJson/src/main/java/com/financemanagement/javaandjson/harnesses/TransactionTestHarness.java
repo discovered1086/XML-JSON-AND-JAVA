@@ -32,10 +32,12 @@ public class TransactionTestHarness {
 
 		AccountDTO accountDTO = AccountDTO.builder().accountId("ACCT290").accountNumber("07181610046040")
 				.accountDescription("HDFC Bank account").accountOpenningDate(ZonedDateTime.now()).currency(Monetary.getCurrency("USD"))
+
 				.build();
 		
 		MonetaryAmount amount = Monetary.getDefaultAmountFactory().setNumber(23.43)
 								.setCurrency(Monetary.getCurrency("INR")).create();
+		
 //		
 		
 
