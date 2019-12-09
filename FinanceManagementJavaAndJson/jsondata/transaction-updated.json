@@ -1,0 +1,44 @@
+{
+	"transactionId": "TRN0098789",
+	"transactionDescription": "Citi credit card bill payment",
+	"transactionAmount": {
+		"amount": "23.43",
+		"currency": {
+			"currencyCode": "INR",
+			"numericCode": "356"
+		}
+	},
+	"transactionType": {
+		"transactionTypeCode": "DBTACCNT",
+		"typeOfTransaction": "EXPENSE",
+		"transactionTypeDefinition": "Debit from a checking/savings account",
+		"transactionTypeEffectiveDate": "2019-11-25T00:00:00+05:30[Asia/Kolkata]"
+	},
+	"transactionDate": "2019-11-25T13:30:32+05:30[Asia/Kolkata]",
+	"customerAccount": {
+		"accountId": "ACCT290",
+		"accountNumber": "07181610046040",
+		"currency": {
+			"currencyCode": "USD",
+			"numericCode": "840"
+		},
+		"accountDescription": "HDFC Bank account",
+		"accountOpenningDate": "2019-11-25T13:30:32+05:30[Asia/Kolkata]"
+	},
+	"transactionCategory": {
+		"categoryId": "CTGRY12",
+		"categoryName": "Bill Payment",
+		"categoryDescription": "Bill Payment for various types of bills",
+		"categoryEffectiveDate": "2019-11-25T00:00:00+05:30[Asia/Kolkata]",
+		"transactionType": "EXPENSE",
+		"subCategories": [
+			{
+				"subCategoryId": "SBCTGRY1",
+				"subCategoryName": "Credit card bill payment",
+				"subCategoryDescription": "Credit card bill payment",
+				"subCategoryEffectiveDate": "2019-11-25T00:00:00+05:30[Asia/Kolkata]"
+			}
+		]
+	},
+	"transactionNotes": "This is the bill payment for the Citi card for this month July 2019"
+}
