@@ -1,5 +1,7 @@
 package com.kingshuk.javaandjson.beans;
 
+
+
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
